@@ -6,7 +6,7 @@
 {% endblock %}
 {% block content %}
     {% with total_likes=article.users_like.count users_like=article.users_like.all %}
-        <div class="container">
+        <div class="container" style="width: 98%;">
             <div class="col-md-9">
                 <header>
                     <h1>{{ article.title }}</h1>
@@ -20,7 +20,7 @@
                 </span>
                 </header>
                 <link rel="stylesheet" href="{% static 'editor/css/editormd.preview.css' %}">
-                <div id="editormd-view" style="width:89%;">
+                <div id="editormd-view">
                 <textarea id="append-test" style="">
                     {{ article.body }}
                 </textarea>
@@ -45,7 +45,7 @@
                 </div>
                 <hr>
                 <div>
-                    <h3><span class="glyphicon glyphicon-bullhorn"></span>本文有{{ comments.count }}评论</h3>
+                    <h3><span class="glyphicon glyphicon-bullhorn"></span>本文有{{ article.comments.count }}评论</h3>
                     {% for comment in article.comments.all %}
                         <div>
                             <p><strong>{{ comment.commentator }}</strong>说：</p>
@@ -58,9 +58,9 @@
                     <form action="." method="post" class="form-horizontal" role="form">
                         {% csrf_token %}
                         <div class="form-group">
-                            <label for="inputEmail3" class="col-md-2 control-label">评论员</label>
+                            <label for="inputEmail3" class="col-md-2 control-label">用户</label>
                             <div class="col-md-10">
-                                {{ comment_form.commtator }}
+                                {{ comment_form.commentator }}
                             </div>
                         </div>
                         <div class="form-group">
