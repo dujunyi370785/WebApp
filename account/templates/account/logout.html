@@ -1,0 +1,12 @@
+{% extends 'account/base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    系统登出
+{% endblock title %}
+{% block content %}
+    <div class="row text-center vertical-middle-sm">
+        <p>您已经退出当前系统。</p>
+        <p>您可以<a href="{% url 'account:user_login' %}">重新登录</a>系统，以进行其他操作</p>
+    </div>
+{% endblock content %}

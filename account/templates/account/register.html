@@ -1,0 +1,71 @@
+{% extends 'account/base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    用户注册
+{% endblock %}
+
+{% block content %}
+    <div class="row text-center vertical-middle-sm">
+        <h1>用户注册</h1>
+        <p>如果你已经注册，请<a href="{% url 'account:user_login' %}">登录系统</a></p>
+        <form class="form-horizontal" action="" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.username.id_for_label }}" class="col-md-5 control-label">用户名</label>
+                <div class="col-md-2">
+                    <input class="form-control text-left" placeholder="注册的用户名" name="username">
+                </div>
+                <div class="col-md-5 bs-callout bs-callout-info text-left">
+                    <h5 class="text-warning">(*)长度4-20位</h5>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="{{ form.username.id_for_label }}" class="col-md-5 control-label">电子邮箱</label>
+                <div class="col-md-2">
+                    <input class="form-control text-left" placeholder="有效的电子邮箱" name="email">
+                </div>
+                <div class="col-md-5 bs-callout bs-callout-info text-left">
+                    <h5 class="text-warning">(*)有效的电子邮箱</h5>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="{{ form.username.id_for_label }}" class="col-md-5 control-label">登录密码</label>
+                <div class="col-md-2">
+                    <input class="form-control text-left" type="password" placeholder="合理的登录密码" name="password">
+                </div>
+                <div class="col-md-5 bs-callout bs-callout-info text-left">
+                    <h5 class="text-warning">(*)长度6-20位，可以是数字、大小写字母</h5>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="{{ form.username.id_for_label }}" class="col-md-5 control-label">密码确认</label>
+                <div class="col-md-2">
+                    <input class="form-control text-left" type="password" placeholder="再次确认密码" name="password2">
+                </div>
+                <div class="col-md-5 bs-callout bs-callout-info text-left">
+                    <h5 class="text-warning">(*)再次确认密码</h5>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="{{ form.username.id_for_label }}" class="col-md-5 control-label">出生日期</label>
+                <div class="col-md-2">
+                    <input class="form-control text-left" type="data" placeholder="出生日期" name="birth">
+                </div>
+                <div class="col-md-5 bs-callout bs-callout-info text-left">
+                    <h5 class="text-warning">(*)您的出生日期</h5>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="{{ form.username.id_for_label }}" class="col-md-5 control-label">联系电话</label>
+                <div class="col-md-2">
+                    <input class="form-control text-left" type="text" placeholder="联系电话" name="phone">
+                </div>
+                <div class="col-md-5 bs-callout bs-callout-info text-left">
+                    <h5 class="text-warning">(*)联系电话</h5>
+                </div>
+            </div>
+            <input type="submit" class="btn btn-primary btn-lg" value="注册" name="register">
+        </form>
+    </div>
+{% endblock content %}

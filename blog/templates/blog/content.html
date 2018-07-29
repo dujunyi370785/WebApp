@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+{% block title %}
+    blog title
+{% endblock title %}
+{% block content %}
+    <div class="row text-center vertical-middle-sm">
+        <h1>{{ article.title }}</h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-8">
+            <p class="text-center">
+                <span>{{ article.author.username }}</span><span style="margin-left:20px">{{ publish }}</span>
+            </p>
+            <div>{{ article.content }}</div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <h2>广告</h2>
+            <p>让我们一起学Python www.dataexplore.cn</p>
+            <img width="200px" src="{% static 'images/cat.jpg' %}"></img>
+        </div>
+    </div>
+{% endblock %}
