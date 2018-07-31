@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.urls import reverse
 from slugify import slugify
 from .articlecolumn import ArticleColumn
+from .articletag import ArticleTag
 
 
 class ArticlePost(models.Model):
@@ -15,9 +16,10 @@ class ArticlePost(models.Model):
     created = models.DateTimeField(default=timezone.now())
     updated = models.DateTimeField(auto_now=True)
     users_like = models.ManyToManyField(User, related_name='article_like', blank=True)
+    article_tag = models.ManyToManyField(ArticleTag, related_name='article_tag', blank=True)
 
     class Meta:
-        ordering = ('-created','title')
+        ordering = ('-created', 'title')
         index_together = (('id', 'slug'),)
 
     def __str__(self):

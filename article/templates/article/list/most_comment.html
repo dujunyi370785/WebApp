@@ -1,0 +1,9 @@
+<hr>
+<p class="text-center">最多评论的文章</p>
+<ul>
+    {% for comment_article in most_commented_articles %}
+        <li>
+            <a href="{{ comment_article.get_url_path }}">{{ comment_article.title }}</a>
+        </li>
+    {% endfor %}
+</ul>

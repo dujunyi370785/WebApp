@@ -1,5 +1,6 @@
 {% extends 'article/base.html' %}
 {% load staticfiles %}
+{% load article_tags %}
 
 {% block title %}
     {{ article.title }}
@@ -87,6 +88,10 @@
                         </li>
                     {% endfor %}
                 </ol>
+                <hr>
+                <p class="text-center">最新文章</p>
+                {% latest_articles 4 %}
+                {% include 'article/list/most_comment.html' %}
             </div>
         </div>
         <script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
