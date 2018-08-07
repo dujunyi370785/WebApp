@@ -35,9 +35,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'sorl.thumbnail',
     'blog',
     'account',
     'article',
+    'image',
 ]
 
 MIDDLEWARE = [
@@ -132,6 +134,11 @@ STATIC_FILES = (
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# 配置应用需要访问的媒体资料
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
 
 # 静态文件的存储位置
 STATICFILES_DIRS = (

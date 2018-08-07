@@ -17,6 +17,7 @@ def user_login(request):
         if login_form.is_valid():
             cd = login_form.cleaned_data
             user = authenticate(username=cd['username'], password=cd['password'])
+            userprofile = UserProfile.objects.filter(user=user)
             if user:
                 login(request, user)
                 return HttpResponse('Login Successful')

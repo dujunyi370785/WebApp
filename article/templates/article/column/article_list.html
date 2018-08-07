@@ -36,7 +36,7 @@
     <script type="text/javascript" src="{% static 'js/layer.js' %}"></script>
     <script type="text/javascript">
         function del_article(the, article_id) {
-            var article_name = $(the).parent("tr").children("td").eq(1).text();
+            var article_name = $(the).parents("tr").children("td").eq(1).text();
             layer.open({
                 type: 1,
                 skin: "layui-layer-rim",

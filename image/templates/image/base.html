@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <div class="col-md-2">
+        {% include 'leftslider.html' %}
+    </div>
+
+    <div class="col-md-10">
+        {% block main %}
+        {% endblock main %}
+        {% include 'paginator.html' %}
+    </div>
+
+{% endblock %}
